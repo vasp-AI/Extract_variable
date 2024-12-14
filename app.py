@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import google.generativeai as genai
 import json
 import os
@@ -8,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-
+CORS(app)
 # Configure the Generative AI API
 genai_api_key = os.getenv("GENAI_API_KEY")
 if not genai_api_key:
