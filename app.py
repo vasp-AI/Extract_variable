@@ -82,13 +82,9 @@ def extract_variables():
 
         # Preprocess and format the response into JSON
         raw_variables = response.text.strip()
-        variables = {}
         
-        for pair in raw_variables.split(','):
-            key, value = pair.split(':', 1)
-            variables[key.strip()] = value.strip()
 
-        return jsonify(variables), 200
+        return jsonify(raw_variables), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
