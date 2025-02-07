@@ -1,12 +1,1 @@
-name: Keep website alive
 
-on:
-  schedule:
-    - cron: '*/10 * * * *'  # Runs every 10 minutes
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Ping Website
-        run: curl -s https://extract-variable.onrender.com/extract-variables > /dev/null
